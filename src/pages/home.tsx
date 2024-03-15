@@ -6,7 +6,7 @@ import fight3 from "../assets/fight3.jpg"
 import fight4 from "../assets/fight4.jpg"
 import fight5 from "../assets/fight5.jpg"
 import icon2 from "../assets/icon2.png"
-import Header from "./header"
+import Header from "../components/header"
 
 function Home() {
     return (
