@@ -3,12 +3,14 @@ import Home from "./components/home";
 import { BrowserRouter, Routes, Route  } from "react-router-dom";
 import Alerts from "./components/alerts";
 import History from "./components/history";
+import Header from "./components/header";
 
 
 function App() {
 	return (
 		<>
 		<BrowserRouter>
+		{/* <Header/> */}
 			<Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />
