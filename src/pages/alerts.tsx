@@ -1,41 +1,26 @@
+// Alerts.tsx
 import React from 'react';
 import fight1 from '../assets/fight1.jpeg';
 import Header from '../components/header';
+import Card from '../components/Card';
 
-const Alerts = () => {
+const Alerts: React.FC = () => {
     return (
         <div className='h-screen w-screen flex flex-col'>
-            <Header />
-            {/* Full-screen parent card */}
             <div className="flex-grow bg-gray-100 rounded-lg overflow-hidden">
                 <div className="h-full flex flex-col justify-center items-center">
-                    {/* Child cards */}
-                    <div className="bg-white shadow-md rounded-lg my-4 mx-2 w-full max-w-screen-lg">
-                        <div className="flex items-center justify-between px-6 py-4">
-                            <div>
-                                <img className="mr-4" src={fight1} alt="fight.png" />
-                            </div>
-                            <div className="ml-4">
-                                <div className="font-bold text-xl mb-2">Card 1</div>
-                                <p className="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-white shadow-md rounded-lg my-4 mx-2 w-full max-w-screen-lg">
-                        <div className="flex items-center justify-between px-6 py-4">
-                            <div>
-                                <img className="mr-4" src={fight1} alt="fight.png" />
-                            </div>
-                            <div className="ml-4">
-                                <div className="font-bold text-xl mb-2">Card 2</div>
-                                <p className="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <Card
+                        location="Variable Location 1"
+                        ip="Variable IP 1"
+                        imageSrc={fight1}
+                        altText="fight.png"
+                    />
+                    <Card
+                        location="Variable Location 2"
+                        ip="Variable IP 2"
+                        imageSrc={fight1}
+                        altText="fight.png"
+                    />
                 </div>
             </div>
         </div>
