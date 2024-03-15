@@ -31,7 +31,7 @@ function Home() {
             </div>
             <div className="flex justify-center bg-stone-300">
                 {[fight1, fight3, fight5, fight4, fight2].map((image, index) => (
-                    <img key={index} src={image} alt={`fight${index + 1}.png`} className="w-1/5 mx-2" /> // Adjust width and margin as needed
+                    <img key={index} src={image} alt={`fight${index + 1}.png`} className="w-1/5 mx-1/5" /> // Adjust width and margin as needed
                 ))}
             </div>
             <div>
