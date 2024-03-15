@@ -1,19 +1,21 @@
-import Login from "./components/login";
-import Home from "./components/home";
+import Login from "./pages/signin";
+import Home from "./pages/home";
 import { BrowserRouter, Routes, Route  } from "react-router-dom";
-import Alerts from "./components/alerts";
-import History from "./components/history";
+import Alerts from "./pages/alerts";
+import History from "./pages/history";
+import Header from "./components/Header";
 
 
 function App() {
 	return (
 		<>
-		<BrowserRouter>
+			<BrowserRouter>
+				<Header/>
 			<Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home />} />
 				<Route path="/alerts" element={<Alerts />} />
 				<Route path="/history" element={<History/>} />
+				<Route path="/signin" element={<Login/>} />
             </Routes>
 		</BrowserRouter>
 
