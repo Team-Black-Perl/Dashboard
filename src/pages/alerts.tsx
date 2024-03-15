@@ -1,30 +1,54 @@
 // Alerts.tsx
-import React from 'react';
-import fight1 from '../assets/fight1.jpeg';
-import Header from '../components/header';
-import Card from '../components/Card';
+import React from "react";
+import Card from "../components/Card";
+import axios from "axios";
 
+axios.defaults.withCredentials = true;
+
+interface Alert {
+	uid: string;
+	lat: string;
+	long: string;
+	downloadUrl: string;
+}
 const Alerts: React.FC = () => {
-    return (
-        <div className='h-screen w-screen flex flex-col'>
-            <div className="flex-grow bg-gray-100 rounded-lg overflow-hidden">
-                <div className="h-full flex flex-col justify-center items-center">
-                    <Card
-                        location="Variable Location 1"
-                        ip="Variable IP 1"
-                        imageSrc={fight1}
-                        altText="fight.png"
-                    />
-                    <Card
-                        location="Variable Location 2"
-                        ip="Variable IP 2"
-                        imageSrc={fight1}
-                        altText="fight.png"
-                    />
-                </div>
-            </div>
-        </div>
-    );
+	const [alerts, setAlerts] = React.useState<Alert[]>([]);
+
+	const getData = async () => {
+		try {
+			const response = await axios.get(
+				"http://localhost:3000/alert/incomplete"
+			);
+			setAlerts(response.data);
+			console.log(response.data);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	React.useEffect(() => {
+		getData();
+	}, []);
+
+	return (
+		<div className="h-screen w-screen flex flex-col">
+			<div className="flex-grow bg-gray-100 rounded-lg overflow-hidden">
+				<div className="h-full flex flex-col justify-center items-center">
+					{alerts.map((alert, index) => (
+						<Card
+							key={index}
+							_id={alert.uid}
+							lat={alert.lat}
+							long={alert.long}
+							imageSrc={alert.downloadUrl}
+							altText="fight.png" // Assuming all alerts use the same alt text for now
+                            page="alerts"
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Alerts;
