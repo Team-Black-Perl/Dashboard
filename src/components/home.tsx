@@ -7,6 +7,7 @@ import fight4 from "../assets/fight4.jpg"
 import fight5 from "../assets/fight5.jpg"
 import icon2 from "../assets/icon2.png"
 import Header from "./header"
+import gife from "../assets/map.webp"
 
 function Home() {
     return (
@@ -32,11 +33,16 @@ function Home() {
                     <h1 className="text-4xl font-bold text-center text-gray-800">Welcome to the Dashboard!</h1>
                     <h2 className="text-center text-3x1 text-gray-800 ">Violence is a punishable CRIME</h2>
                 </div>
-                <div className="flex justify-center bg-stone-300">
+                {/* <div className="flex justify-center bg-stone-300">
                     {[fight1, fight3, fight5, fight4, fight2].map((image, index) => (
                         <img key={index} src={image} alt={`fight${index + 1}.png`} className="w-1/5 mx-1/3" /> // Adjust width and margin as needed
                     ))}
+                </div> */}
+                <div>
+                <img src={gife} alt="gg" className=" object-contain width-[1024px]" />
+
                 </div>
+                
                 <div>
                     <p>
                         <h2 className="text-4xl text-center text-gray-800">Violence is the last refuge of the incompetent.</h2>

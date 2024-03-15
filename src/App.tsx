@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route  } from "react-router-dom";
 import Alerts from "./components/alerts";
 import History from "./components/history";
 import Header from "./components/header";
+import 'leaflet/dist/leaflet.css';
+
 
 
 function App() {
@@ -12,8 +14,9 @@ function App() {
 		<BrowserRouter>
 		{/* <Header/> */}
 			<Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
+				<Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+				<Route path="/home" element={<Home />} />
 				<Route path="/alerts" element={<Alerts />} />
 				<Route path="/history" element={<History/>} />
             </Routes>
