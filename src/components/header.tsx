@@ -18,7 +18,7 @@ export default function Header() {
           </Link>
           <Link to="/alerts">
             <li className=" hidden sm:inline text-xl text-white hover:underline">
-              Alert
+              Alerts
             </li>
           </Link>
           <Link to="/history">

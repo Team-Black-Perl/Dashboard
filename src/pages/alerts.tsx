@@ -9,21 +9,35 @@ interface Alert {
 	uid: string;
 	lat: string;
 	long: string;
-	downloadUrl: string;
+	downloadURL: string;
+}
+
+interface User {
+	user_id: number;
+	ip_address: string;
+	long: number;
+	lat: number;
+	city: string;
+	state: string;
 }
 const Alerts: React.FC = () => {
 	const [alerts, setAlerts] = React.useState<Alert[]>([]);
+	const [user, setUser] = React.useState<User | null>(null);
 
 	const getData = async () => {
 		try {
 			const response = await axios.get(
 				"http://localhost:3000/alert/incomplete"
 			);
-			setAlerts(response.data);
-			console.log(response.data);
+			setAlerts(response.data.alerts);
+			setUser(response.data.userData);
+			console.log(response.data.userData);
 		} catch (error) {
 			console.error(error);
 		}
+	};
+	const handleClosePopup = () => {
+		getData(); // Call getData when the pop-up is closed
 	};
 
 	React.useEffect(() => {
@@ -40,9 +54,11 @@ const Alerts: React.FC = () => {
 							_id={alert.uid}
 							lat={alert.lat}
 							long={alert.long}
-							imageSrc={alert.downloadUrl}
-							altText="fight.png" // Assuming all alerts use the same alt text for now
-                            page="alerts"
+							vidSrc={alert.downloadURL}
+							page="alerts"
+							ip={user?.ip_address ? user.ip_address : ""}
+							location={`${user?.city}, ${user?.state}`}
+							onClosePopup={handleClosePopup}
 						/>
 					))}
 				</div>
